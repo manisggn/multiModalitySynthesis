@@ -39,7 +39,7 @@ class Data(object):
             self.num_vols = 54
             self.splits_file = './splits_lgg.txt'
         elif self.dataset == 'IXI':
-            self.num_vols = 28
+            self.num_vols = 1
             self.splits_file = './splits.txt'
 
         if modalities_to_load is not None:
@@ -110,6 +110,7 @@ class Data(object):
 
         if self.dataset == 'ISLES':
             file_name = self.data_folder + '/ISLES/' + modality + '.npz'
+            np.save(Filename, data)
             data = np.load(file_name)['arr_0']
         elif self.dataset == 'BRATS':
             file_name = self.data_folder + '/BRATS/LGG_out/' + modality + '.npz'
