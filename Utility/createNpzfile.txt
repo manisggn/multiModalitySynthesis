@@ -1,22 +1,23 @@
 import os
 import pickle
-#import nibabel as nib
+import nibabel as nib
 import numpy as np
-#
-#for root,dirs,files in os.walk("./"):
-#    images = []
-#    for file in files:
-#        if file.endswith(('.nii')):
-#           # print(file)
-#            input_layer= nib.load(file)
-#            data=input_layer.get_fdata()
-#           # output_layer=np.array(data)
-#            #output_layernew=np.expand_dims(data,axis=3)
-#            images.append(data)
-#            x=len(images)
-#            print(x)
-#            np.savez('output',data)
-data = np.load('./output.npz')
+
+for root,dirs,files in os.walk("./"):
+    images = []
+    for file in files:
+        if file.endswith(('.nii')):
+           # print(file)
+            input_layer= nib.load(file)
+            data=input_layer.get_fdata()
+           # output_layer=np.array(data)
+            #output_layernew=np.expand_dims(data,axis=3)
+            images.append(data)
+            x=len(images)
+            print(x)
+            np.savez('output',data)
+#emp = {1:"A",2:"B",3:"C",4:"D",5:"E"}
+#data = np.load('./dti.npz')
 pickle_out=open("data.pickle","wb")
-pickle.dump(data,pickle_out)
+pickle.dump(data, pickle_out)
 pickle_out.close()           
