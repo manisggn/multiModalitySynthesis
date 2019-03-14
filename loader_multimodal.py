@@ -110,7 +110,7 @@ class Data(object):
 
         if self.dataset == 'ISLES':
             file_name = self.data_folder + '/ISLES/' + modality + '.npz'
-            print file_name
+            print '/ISLES/' + modality + '.npz'
             data = np.load(file_name)['arr_0']
         elif self.dataset == 'BRATS':
             file_name = self.data_folder + '/BRATS/LGG_out/' + modality + '.npz'
