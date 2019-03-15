@@ -109,8 +109,8 @@ class Data(object):
     def load_modality(self, modality, normalize_volumes=True, downsample=2, rotate_mult=0.0, shift_mult=0.0):
 
         if self.dataset == 'ISLES':
-            file_name = self.data_folder + '/ISLES/' + modality + '.pickle'
-            print '/ISLES/' + modality + '.pickle'
+            file_name = self.data_folder + '/ISLES/' + modality + '.npz'
+            print '/ISLES/' + modality + '.npz'
             data = np.load(file_name)['arr_0']
         elif self.dataset == 'BRATS':
             file_name = self.data_folder + '/BRATS/LGG_out/' + modality + '.npz'
