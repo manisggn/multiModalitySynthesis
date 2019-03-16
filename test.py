@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 from loader_multimodal import Data
 from runner import Experiment
