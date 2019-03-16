@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 from loader_multimodal import Data
 from runner import Experiment
 data = Data('./data/', modalities_to_load=['T1','T2'], dataset='IXI', trim_and_downsample=False)
