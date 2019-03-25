@@ -30,7 +30,7 @@ class Experiment(object):
         print('Creating model...')
         mod = self.input_modalities[0]
         chn = self.data.select_for_ids(mod, [0]).shape[1]
-        print self.data.select_for_ids(mod, [0])
+        print self.data.select_for_ids(mod, [0]).shape
         print 'Channels: %d' % chn
         self.mm = Multimodel(self.input_modalities, self.output_modalities, self.output_weights, self.latent_dim, chn,
                              self.spatial_transformer, self.common_merge, self.ind_outs, self.fuse_outs)
