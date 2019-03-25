@@ -143,6 +143,7 @@ class Experiment(object):
         # create files
         files_embs = {}
         for emb in range(self.mm.num_emb):
+            print self.mm.num_emb
             files = {}
             for mod in self.output_modalities:
                 csv_header = '#,' + ','.join(metrics[:-1]) + ', volume_type, MSE_NBG_AVG_EMB\n'
