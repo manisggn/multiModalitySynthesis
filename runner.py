@@ -34,7 +34,7 @@ class Experiment(object):
         self.mm = Multimodel(self.input_modalities, self.output_modalities, self.output_weights, self.latent_dim, chn,
                              self.spatial_transformer, self.common_merge, self.ind_outs, self.fuse_outs)
         self.mm.build()
-
+        
     def load_model(self, folder, model_name='model'):
         self.create_model()
         self.mm.model.load_weights(folder + '/' + model_name)
