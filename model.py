@@ -53,13 +53,13 @@ class Multimodel(object):
 
     def encoder_maker(self, modality):
         inp = Input(shape=(self.channels, self.H, self.W), name='enc_' + modality + '_input')
+        print self.channels, self.H, self.W
         conv = Conv2D(32, 3, padding='same', name='enc_' + modality + '_conv1')(inp)
         act = LeakyReLU()(conv)
         conv = Conv2D(32, 3, padding='same', name='enc_' + modality + '_conv2')(act)
         act1 = LeakyReLU()(conv)
 
         # downsample 1st level
-        print modality 
         pool = MaxPooling2D(pool_size=(2, 2))(act1)
         conv = Conv2D(64, 3, padding='same', name='enc_' + modality + '_conv3')(pool)
         act = LeakyReLU()(conv)
