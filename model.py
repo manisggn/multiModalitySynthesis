@@ -388,11 +388,11 @@ def tpn_maker(input_shape):
 
     stacked = merge([target_input, input], mode='concat')
 
-    mp1 = MaxPooling2D(pool_size=(2, 2))(stacked)
+    mp1 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(stacked)
     conv1 = Conv2D(8, 5)(mp1)
-    mp2 = MaxPooling2D(pool_size=(2, 2))(conv1)
+    mp2 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(conv1)
     conv2 = Conv2D(8, 5)(mp2)
-    mp3 = MaxPooling2D(pool_size=(2, 2))(conv2)
+    mp3 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(conv2)
     conv3 = Conv2D(8, 5)(mp3)
     flt = Flatten()(conv3)
     d50 = Dense(50)(flt)
