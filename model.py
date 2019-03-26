@@ -68,7 +68,7 @@ class Multimodel(object):
         act2 = LeakyReLU()(conv)
 
         # downsample 2nd level
-        pool = MaxPooling2D(pool_size=(2, 2))(act2)
+        pool = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(act2)
         conv = Conv2D(128, 3, padding='same', name='enc_' + modality + '_conv5')(pool)
         act = LeakyReLU()(conv)
         conv = Conv2D(128, 3, padding='same', name='enc_' + modality + '_conv6')(act)
