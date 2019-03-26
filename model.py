@@ -53,7 +53,7 @@ class Multimodel(object):
 
     def encoder_maker(self, modality):
         inp = Input(shape=(self.channels, self.H, self.W), name='enc_' + modality + '_input')
-        print self.channels, self.H, self.W
+        print inp.shape
         conv = Conv2D(32, 3, padding='same', name='enc_' + modality + '_conv1')(inp)
         print conv.shape 
         act = LeakyReLU()(conv)
