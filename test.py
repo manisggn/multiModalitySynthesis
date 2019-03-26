@@ -6,5 +6,5 @@ data.load()
 
 input_modalities= ['T1','T2']
 output_weights= { 'T2':1.0, 'concat':1.0}
-exp = Experiment(input_modalities, output_weights, './', data, latent_dim=4, spatial_transformer=True)
+exp = Experiment(input_modalities, output_weights, './', data, latent_dim=4, spatial_transformer=False)
 exp.run(data)
