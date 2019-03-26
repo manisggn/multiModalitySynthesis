@@ -211,6 +211,7 @@ class Data(object):
 
     def select_for_ids(self, modality, ids, as_array=True):
         assert modality in self.refDict
+        print ids
         data_ids = [self.refDict[modality][i] for i in ids]
 
         if as_array:
