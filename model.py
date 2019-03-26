@@ -49,7 +49,7 @@ class Multimodel(object):
         if spatial_transformer:
             self.H, self.W = 112, 80  # Width/Height for ISLES2015 dataset
         else:
-            self.H, self.W = 256, 256
+            self.H, self.W = None, None
 
     def encoder_maker(self, modality):
         inp = Input(shape=(self.channels, self.H, self.W), name='enc_' + modality + '_input')
