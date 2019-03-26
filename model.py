@@ -58,14 +58,14 @@ class Multimodel(object):
         conv = Conv2D(32, 3, padding='same', name='enc_' + modality + '_conv2')(act)
         act1 = LeakyReLU()(conv)
         # downsample 1st level
-        pool = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(act1)
+        pool = MaxPooling2D(pool_size=(2, 2))(act1)
         conv = Conv2D(64, 3, padding='same', name='enc_' + modality + '_conv3')(pool)
         act = LeakyReLU()(conv)
         conv = Conv2D(64, 3, padding='same', name='enc_' + modality + '_conv4')(act)
         act2 = LeakyReLU()(conv)
 
         # downsample 2nd level
-        pool = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(act2)
+        pool = MaxPooling2D(pool_size=(2, 2))(act2)
         conv = Conv2D(128, 3, padding='same', name='enc_' + modality + '_conv5')(pool)
         act = LeakyReLU()(conv)
         conv = Conv2D(128, 3, padding='same', name='enc_' + modality + '_conv6')(act)
@@ -388,11 +388,11 @@ def tpn_maker(input_shape):
 
     stacked = merge([target_input, input], mode='concat')
 
-    mp1 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(stacked)
+    mp1 = MaxPooling2D(pool_size=(2, 2))(stacked)
     conv1 = Conv2D(8, 5)(mp1)
-    mp2 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(conv1)
+    mp2 = MaxPooling2D(pool_size=(2, 2))(conv1)
     conv2 = Conv2D(8, 5)(mp2)
-    mp3 = MaxPooling2D(pool_size=(2, 2), dim_ordering="th")(conv2)
+    mp3 = MaxPooling2D(pool_size=(2, 2))(conv2)
     conv3 = Conv2D(8, 5)(mp3)
     flt = Flatten()(conv3)
     d50 = Dense(50)(flt)
