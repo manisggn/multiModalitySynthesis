@@ -47,7 +47,7 @@ class Multimodel(object):
         self.num_emb = len(input_modalities) + 1
 
         if spatial_transformer:
-            self.H, self.W = 112, 80  # Width/Height for ISLES2015 dataset
+            self.H, self.W = 256, 256  # Width/Height for ISLES2015 dataset
         else:
             self.H, self.W = 256, 256
 
