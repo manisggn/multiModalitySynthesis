@@ -169,7 +169,7 @@ class Data(object):
                 x = x[:, 0:-6, 34:-36]
 
             if self.dataset == 'IXI':
-                X=X[:,0:-6,34:-36]
+                x=x[:,0:-6,34:-36]
 
             if self.trim_and_downsample:
                 X[i] = block_reduce(x, block_size=(1, downsample, downsample), func=np.mean)
