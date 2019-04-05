@@ -28,7 +28,7 @@ class Data(object):
     data.load()
     vols_0_1_2 = data.select_for_ids('T1', [0, 1, 2])
     '''
-    def __init__(self, data_folder, modalities_to_load=None, dataset='ISLES', trim_and_downsample=False):
+    def __init__(self, data_folder, modalities_to_load=None, dataset='ISLES', trim_and_downsample=True):
         self.data_folder = data_folder[:-1] if data_folder.endswith('/') else data_folder
 
         self.dataset = dataset
