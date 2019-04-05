@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 from loader_multimodal import Data
 from runner import Experiment
-data = Data('./data/', modalities_to_load=['T1','T2'], dataset='IXI', trim_and_downsample=True)
+data = Data('./data/', modalities_to_load=['T1','T2'], dataset='IXI', trim_and_downsample=False)
 data.load()
 
 input_modalities= ['T1','T2']
