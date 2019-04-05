@@ -165,7 +165,7 @@ class Experiment(object):
             print('testing model on volume ' + str(vol_num) + '...')
 
             X = [self.data.select_for_ids(mod, [vol_num]) for mod in self.input_modalities]
-            print mod, [vol_num]) for mod in self.input_modalities
+            print mod, vol_num for mod in self.input_modalities
             Z = self.mm.model.predict(X)
 
             # compute emb average
