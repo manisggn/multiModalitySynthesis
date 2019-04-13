@@ -123,7 +123,7 @@ class Experiment(object):
         print('Fitting model...')
         self.mm.model.fit(train_in, train_out, validation_data=(valid_in, valid_out), epochs=100, batch_size=16,
                           callbacks=[cb, es])
-
+# check the structure of initial_weights for 3D or 2D
         final_weights = [lay.get_weights() for lay in self.mm.model.layers]
         for i, weight_list in enumerate(initial_weights):
             for j, weight_matrix in enumerate(weight_list):
