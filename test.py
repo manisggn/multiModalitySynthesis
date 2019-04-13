@@ -3,7 +3,7 @@ from loader_multimodal import Data
 from runner import Experiment
 #from keras import backend as K
 #K.set_image_dim_ordering('th')
-data = Data('./data/', modalities_to_load=['T1','T2'], dataset='IXI', trim_and_downsample=False)
+data = Data('./data/', modalities_to_load=['T1'], dataset='IXI', trim_and_downsample=False)
 data.load()
 
 input_modalities= ['T1']
