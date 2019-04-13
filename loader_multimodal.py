@@ -104,6 +104,7 @@ class Data(object):
         data = [nib.load(folder + '/' + f).get_data() for f in np.sort(os.listdir(folder))]
         data = [np.swapaxes(np.swapaxes(d, 1, 2), 0, 1) for d in data]
         print 'Loaded %d vols from IXI' % len(data)
+        print data[0].shape
         return data
 
     def load_modality(self, modality, normalize_volumes=True, downsample=2, rotate_mult=0.0, shift_mult=0.0):
