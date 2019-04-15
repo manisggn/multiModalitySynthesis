@@ -39,7 +39,7 @@ class Data(object):
             self.num_vols = 54
             self.splits_file = './splits_lgg.txt'
         elif self.dataset == 'IXI':
-            self.num_vols = 1
+            self.num_vols = 2
             self.splits_file = './splits.txt'
 
         if modalities_to_load is not None:

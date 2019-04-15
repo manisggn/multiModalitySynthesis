@@ -9,7 +9,6 @@ from model import Multimodel
 from mult_image_save_callback import ImageSaveCallback
 from error_metrics import ErrorMetrics
 
-
 class Experiment(object):
     def __init__(self, input_modalities, output_weights, folder_name, data, latent_dim=4, spatial_transformer=True,
                  common_merge='max', ind_outs=True, fuse_outs=True):
@@ -165,6 +164,10 @@ class Experiment(object):
             print('testing model on volume ' + str(vol_num) + '...')
 
             X = [self.data.select_for_ids(mod, [vol_num]) for mod in self.input_modalities]
+            print "first one shape is {}".format(X[0].shape)
+            print "the next one shape is {}".format(X[1].shape)
+            print "the lenth of list is  {}".format(len(X))
+            print "type is {}".format(X[0].dtype)
             print [str(mod) for mod in self.input_modalities]
             Z = self.mm.model.predict(X)
 
