@@ -101,6 +101,7 @@ class Experiment(object):
                      for i in range(self.mm.num_emb)]
         valid_out = [self.data.select_for_ids(mod, ids_valid) for mod in self.output_modalities
                      for i in range(self.mm.num_emb)]
+        print "shape is {}".format(train_out[0].shape[0])             
         train_shape = (train_out[0].shape[0], 1, train_out[0].shape[2], train_out[0].shape[3])
         valid_shape = (valid_out[0].shape[0], 1, valid_out[0].shape[2], valid_out[0].shape[3])
 
@@ -120,6 +121,7 @@ class Experiment(object):
         print self.mm.model.loss_weights
 
         print('Fitting model...')
+        print "cb shape is {}".format(cb_train_in[0].shape[0])
         self.mm.model.fit(train_in, train_out, validation_data=(valid_in, valid_out), epochs=100, batch_size=16,
                           callbacks=[cb, es])
 # check the structure of initial_weights for 3D or 2D
@@ -165,7 +167,6 @@ class Experiment(object):
 
             X = [self.data.select_for_ids(mod, [vol_num]) for mod in self.input_modalities]
             print "first one shape is {}".format(X[0].shape)
-            print "the next one shape is {}".format(X[1].shape)
             print "the lenth of list is  {}".format(len(X))
             print "type is {}".format(X[0].dtype)
             print [str(mod) for mod in self.input_modalities]
